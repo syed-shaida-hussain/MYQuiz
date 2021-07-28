@@ -11,12 +11,13 @@ function play(question,answer)
 
     if(userAnswer.toUpperCase() === answer.toUpperCase())
     {
-        console.log(chalk.bold.green(userAnswer +" is the right answer! , you scored a point "));
+        console.log(chalk.bold.green(userAnswer +" is the right choice! , you scored a point "));
         score++;
     }
     else
     {
-        console.log(chalk.bold.red(userAnswer +" is the wrong answer! "));
+        console.log(chalk.bold.red(userAnswer +" is the wrong choice!"));  
+        console.log(chalk.bold.green(answer +" is the correct choice "));
     }
 
     console.log(chalk.bold.blue("your current score is:",score));
