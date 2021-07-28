@@ -1,8 +1,9 @@
 var readLineSync = require('readline-sync');
-var highcore = 10;
+const chalk = require('chalk');
+var highScore = 10;
 var score = 0;
 var userName = readLineSync.question("what's your name? ");
-console.log("welcome "+userName +", to 'DO YOU KNOW ME' ")
+console.log(chalk.bold.green("welcome "+userName +", to 'DO YOU KNOW ME' "))
 
 function play(question,answer)
 {
@@ -10,37 +11,37 @@ function play(question,answer)
 
     if(userAnswer.toUpperCase() === answer.toUpperCase())
     {
-        console.log("you are right! , yay you scored a point ");
+        console.log(chalk.bold.green(userAnswer +" is the right answer! , you scored a point "));
         score++;
     }
     else
     {
-        console.log("you are wrong! ");
+        console.log(chalk.bold.red(userAnswer +" is the wrong answer! "));
     }
 
-    console.log("your current score is:",score);
+    console.log(chalk.bold.blue("your current score is:",score));
 
 }
-    var questions = [{question : "where do i live? ",
-    answer : "ratnipora"},
-    {question : "what is my profession? ",
-    answer : "student" },
-    {question : "who is my favourite character in marvel? ",
-    answer :"iron man"},
-    {question : "who is my favourite footballer? ",
-    answer :"messi"},
-    {question : "what do i like to do the most? ",
-    answer : "playing"},
-    {question : "how old i am? ",
-    answer : "20"},
-    {question : "what is my favourite sport? ",
-    answer : "football"},
-    {question : "name my favourite place ",
-    answer : "madina"},
-    {question : "who is my favourite cricketer? ",
-    answer : "babar azam"},
-    {question : "name my phone's brand? ",
-    answer : "samsung"},
+    var questions = [{question : "1. where do i live? \n a) ratnipora  \n b) pulwama \n c) budgam \n",
+    answer : "a"},
+    {question : "2. what is my profession? \n a) web developer \n b) student \n c) youtuber \n",
+    answer : "b" },
+    {question : "3. who is my favourite character among the avengers? \n a) captain america \n b) ant man \n c) iron man \n",
+    answer :"c"},
+    {question : "4. who is my favourite footballer? \n a) messi \n b) ronaldo \n c) zlatan \n",
+    answer :"a"},
+    {question : "5. what do i like to do the most? \n a) playing \n b) coding \n c) watching tech movies \n",
+    answer : "b"},
+    {question : "6. what is my age? \n a)18 \n b)20 \n c)21 \n",
+    answer : "b"},
+    {question : "7. which is my favourite sport? \n a) cricket \n b) basketball \n c) football \n",
+    answer : "c"},
+    {question : "8. name my favourite place \n a) spain \n b) switzerland \n c) madina \n",
+    answer : "c"},
+    {question : "9. who is my favourite cricketer? \n a)virat kohli \n b) babar azam \n c) ben stokes \n ",
+    answer : "b"},
+    {question : "10.name my phone's brand? \n a) samsung \n b) oneplus \n c) apple \n",
+    answer : "a"},
     ]; 
 
     for(var i = 0; i<questions.length; i++)
@@ -49,7 +50,7 @@ function play(question,answer)
         play(currentQuestion.question,currentQuestion.answer);
     }
 
-    console.log("your final score is: ",score)
+    console.log(chalk.bold.yellow("your final score is: ",score))
 
     var myScore = {
         name: "shaida",
@@ -65,10 +66,10 @@ function play(question,answer)
 
     if (userScore.score === myScore.score)
     {
-        console.log("congratulations!, " +userName+ ", you have levelled the high score.");
-        console.log("please share screenshot of your score.");
+        console.log(chalk.bold.green("congratulations! " +userName+ " , you have beaten the high score."));
+        console.log(chalk.bold.blue("please share screenshot of your score."));
     }
     else
     {
-        console.log("well tried");
+        console.log(chalk.bold.yellow("well tried , but you fell short of the high score"));
     }
